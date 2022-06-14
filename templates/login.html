@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+{%block title%}Login{%endblock title%}
+
+{%block content%}
+  <h1>Todo App</h1>
+  <div class="form-container">
+    <div class="container">
+      <form id="form" class="form" method="POST">
+        {%csrf_token%}
+        <h2>Login</h2>
+        <div class="form-control">
+          
+          <label for="Username">Username</label>
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class='bx bxs-user bx-fade-up' style='color: #3498db'></i></span>
+            <input type="text" placeholder="Enter Username" name="username" required/>
+          </div>
+          
+        </div>
+        
+        <div class="form-control">
+          <label">password</label>
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class='bx bx-key bx-flashing' style='color: #3498db'></i>
+            </span>
+            <input type="password" placeholder="Enter password" name='password' required>
+          </div>
+          
+        </div>
+         
+        <button type="submit">Sign in</button>
+      </form>
+      <div class="alert alert-warning" role="alert">
+        {% for message in messages %}
+          <p class="display-5">{{message}}</p>
+        {% endfor %}
+        
+      </div>
+      <div class="info">
+        Dont have an account? Click <a href="{%url 'register'%}">Here</a> to register
+      </div>
+    </div>
+   
+  </div>
+  
+ 
+{%endblock content%}
